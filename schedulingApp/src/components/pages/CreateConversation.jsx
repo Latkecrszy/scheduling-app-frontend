@@ -6,7 +6,7 @@ export default function CreateConversation() {
 
     /*const handleSubmit = async () => {
         console.log([membersValue, user.email])
-        let response = await axios.post('http://localhost:8000/messages/create-conversation', {
+        let response = await axios.post('https://scheduling-app-backend-b4fcac504465.herokuapp.com/messages/create-conversation', {
             emails: [membersValue, user.email]
         }, {
             withCredentials: true,

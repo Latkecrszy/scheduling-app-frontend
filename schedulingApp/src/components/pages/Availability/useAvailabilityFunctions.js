@@ -12,7 +12,7 @@ export default function useAvailabilityFunctions({newAvailabilitySlot, setNewAva
             setActivePopup('timeslotOverlap')
             return
         }
-        let url = 'http://localhost:8000/'
+        let url = 'https://scheduling-app-backend-b4fcac504465.herokuapp.com/'
         if (type === 'add') url += 'add-availability'
         else if (type === 'remove') url += 'remove-availability'
         else if (type === 'edit') url += 'edit-availability'
@@ -42,7 +42,7 @@ export default function useAvailabilityFunctions({newAvailabilitySlot, setNewAva
         if (!data) {
             data = newUnavailableTime
         }
-        let url = 'http://localhost:8000/'
+        let url = 'https://scheduling-app-backend-b4fcac504465.herokuapp.com/'
         if (type === 'add') url += 'add-unavailable-time'
         else if (type === 'remove') url += 'remove-unavailable-time'
         else if (type === 'edit') url += 'edit-unavailable-time'

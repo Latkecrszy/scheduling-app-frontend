@@ -13,13 +13,13 @@ export function UserProvider({ children }) {
     const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:8000/users/me', {
+        fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/users/me', {
             method: 'GET',
             credentials: 'include',
         })
             .then(async res => {
                 if (!res.ok) {
-                    fetch('http://localhost:8000/refresh', {
+                    fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
                         method: 'GET',
                         credentials: 'include',
                     }).then(async () => {
@@ -35,7 +35,7 @@ export function UserProvider({ children }) {
             .finally(() => setLoading(false));
 
         const interval = setInterval(() => {
-            fetch('http://localhost:8000/refresh', {
+            fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
                 method: 'GET',
                 credentials: 'include',
             })

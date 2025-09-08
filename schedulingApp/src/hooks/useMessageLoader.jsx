@@ -11,7 +11,7 @@ export default function useMessageLoader(memHash, messages, setMessages, loadRef
                 if (entry.isIntersecting) {
                     try {
                         const res = await fetch(
-                            `http://localhost:8000/messages/load-messages?mem_hash=${memHash}&skip=${messages.length}`,
+                            `https://scheduling-app-backend-b4fcac504465.herokuapp.com/messages/load-messages?mem_hash=${memHash}&skip=${messages.length}`,
                             {
                                 method: 'GET',
                                 credentials: 'include',

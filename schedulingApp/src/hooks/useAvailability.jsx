@@ -5,13 +5,13 @@ import {formatDate, toLocalTime} from "../components/parts/Functions.jsx";
 export default function useAvailability(refreshAvailability) {
     const [availability, setAvailability] = useState({'events': {'days': {}, 'reschedule': [], 'cancel': []}, 'regular': []})
     useEffect(() => {
-        fetch('http://localhost:8000/get-availability', {
+        fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/get-availability', {
             method: 'GET',
             credentials: 'include',
         })
             .then(async res => {
                 if (!res.ok) {
-                    fetch('http://localhost:8000/refresh', {
+                    fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
                         method: 'GET',
                         credentials: 'include',
                     })

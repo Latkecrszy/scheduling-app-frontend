@@ -53,7 +53,7 @@ export default function SignupPage() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:8000/create-account', toSend, {
+            const response = await axios.post('https://scheduling-app-backend-b4fcac504465.herokuapp.com/create-account', toSend, {
                 withCredentials: true,
             });
             console.log(response.data);

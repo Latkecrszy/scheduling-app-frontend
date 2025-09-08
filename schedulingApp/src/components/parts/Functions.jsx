@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function deleteMessage(message) {
     console.log(message)
-    await axios.post('http://localhost:8000/messages/delete', {
+    await axios.post('https://scheduling-app-backend-b4fcac504465.herokuapp.com/messages/delete', {
         message_id: message.id,
         sender_email: message.sender,
         mem_hash: message.mem_hash,

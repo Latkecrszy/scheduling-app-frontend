@@ -5,7 +5,7 @@ export default function useConversations(conversationCreated) {
     const [conversations, setConversations] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8000/messages/get-conversations`, {
+        fetch(`https://scheduling-app-backend-b4fcac504465.herokuapp.com/messages/get-conversations`, {
             method: 'GET',
             credentials: 'include',
         })
@@ -14,7 +14,7 @@ export default function useConversations(conversationCreated) {
                 setConversations(data)
             })
             .catch(() => {
-                fetch('http://localhost:8000/refresh', {
+                fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
                     method: 'GET',
                     credentials: 'include',
                 })

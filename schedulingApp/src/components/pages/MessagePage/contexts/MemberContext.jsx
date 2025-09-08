@@ -21,7 +21,7 @@ export function MemberProvider({ children }) {
     // Check if the user is a part of this conversation
     useEffect(() => {
         if (!memHash) {
-            fetch('http://localhost:8000/get-mem-hash', {
+            fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/get-mem-hash', {
                 method: 'GET',
                 credentials: 'include',
             }).then(async res => {
@@ -31,7 +31,7 @@ export function MemberProvider({ children }) {
         }
         function checkConversation () {
             if (!user?.email || !memHash) return;
-            return fetch(`http://localhost:8000/check-conversation?email=${user.email}&mem_hash=${memHash}`, {
+            return fetch(`https://scheduling-app-backend-b4fcac504465.herokuapp.com/check-conversation?email=${user.email}&mem_hash=${memHash}`, {
                 method: 'GET',
                 credentials: 'include',
             }).then(async res => {

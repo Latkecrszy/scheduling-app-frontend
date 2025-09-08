@@ -5,13 +5,13 @@ import {formatDate} from "../components/parts/Functions.jsx";
 export default function useAvailability(refreshUnavailableTimes) {
     const [unavailableTimes, setUnavailableTimes] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8000/get-unavailable-times', {
+        fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/get-unavailable-times', {
             method: 'GET',
             credentials: 'include',
         })
             .then(async res => {
                 if (!res.ok) {
-                    fetch('http://localhost:8000/refresh', {
+                    fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
                         method: 'GET',
                         credentials: 'include',
                     })

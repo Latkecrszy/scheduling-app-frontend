@@ -16,7 +16,7 @@ export default function CreateConversationPopup({setConversationCreated}) {
 
     async function createConversation() {
         try {
-            await axios.post('http://localhost:8000/messages/create-conversation',
+            await axios.post('https://scheduling-app-backend-b4fcac504465.herokuapp.com/messages/create-conversation',
                 {emails: [...emails, user.email]},
                 {withCredentials: true})
             setConversationCreated(true)

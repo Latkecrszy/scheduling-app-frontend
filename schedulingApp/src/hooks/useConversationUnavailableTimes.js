@@ -10,7 +10,7 @@ export default function useConversationUnavailableTimes() {
     useEffect(() => {
         if (!members?.emails || members.emails.length === 0) return;
 
-        const queryString = 'http://localhost:8000/get-conversation-unavailable-times?' +
+        const queryString = 'https://scheduling-app-backend-b4fcac504465.herokuapp.com/get-conversation-unavailable-times?' +
             members.emails.map(email => `emails=${encodeURIComponent(email)}`).join('&');
         fetch(queryString, {
             method: 'GET',
@@ -52,7 +52,7 @@ export default function useConversationUnavailableTimes() {
                 setUnavailableTimes(data);
             })
             .catch(() => {
-                fetch('http://localhost:8000/refresh', {
+                fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
                     method: 'GET',
                     credentials: 'include',
                 })

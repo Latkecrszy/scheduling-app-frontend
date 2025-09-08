@@ -28,7 +28,7 @@ export default function LoginPage() {
             email: form.email,
             password: form.password
         }
-        await axios.post('http://localhost:8000/login', toSend, {
+        await axios.post('https://scheduling-app-backend-b4fcac504465.herokuapp.com/login', toSend, {
             withCredentials: true,
         })
             .then(response => {
