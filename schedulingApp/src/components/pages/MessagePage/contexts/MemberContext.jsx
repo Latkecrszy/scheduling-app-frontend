@@ -46,7 +46,7 @@ export function MemberProvider({ children }) {
     // Create websocket URL only if user info has loaded
     const url = useMemo(() => {
         if (!user?.email || !memHash) return null;
-        return `ws://localhost:8000/ws?email=${user.email}&mem_hash=${memHash}`;
+        return `wss://scheduling-app-backend-b4fcac504465.herokuapp.com/ws?email=${user.email}&mem_hash=${memHash}`;
     }, [user?.email, memHash]);
 
     return <MemberContext.Provider value={{url, members, memHash}}>
