@@ -18,20 +18,19 @@ export function UserProvider({ children }) {
             credentials: 'include',
         })
             .then(async res => {
+                if (!res.ok) {
+                    fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
+                        method: 'GET',
+                        credentials: 'include',
+                    })
+                        .catch (() => {
+                            location.replace('/login')
+                        })
+                }
                 const data = await res.json();
                 setUser(data);
             })
-            .catch(() => {
-                fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
-                    method: 'GET',
-                    credentials: 'include',
-                }).then(async () => {
-                    setRefresh(true);
-                })
-                    .catch (() => {
-                        location.replace('/login')
-                    })
-            })
+
             .finally(() => setLoading(false));
 
         const interval = setInterval(() => {

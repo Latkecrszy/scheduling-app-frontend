@@ -25,21 +25,18 @@ export function MemberProvider({ children }) {
                 method: 'GET',
                 credentials: 'include',
             }).then(async res => {
+                if (!res.ok) {
+                    fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
+                        method: 'GET',
+                        credentials: 'include',
+                    })
+                        .catch (() => {
+                            location.replace('/login')
+                        })
+                }
                 const data = await res.json()
                 setMemHash(data.mem_hash);
-            }).catch (() => {
-                fetch('https://scheduling-app-backend-b4fcac504465.herokuapp.com/refresh', {
-                    method: 'GET',
-                    credentials: 'include',
-                })
-                    .then(res => {
-                        if (!res.ok) {
-                            location.reload()
-                        }
-                    })
-                    .catch(err => console.error('Auto refresh error:', err));
             })
-            ;
         }
         function checkConversation () {
             if (!user?.email || !memHash) return;
