@@ -56,6 +56,7 @@ export default function SignupPage() {
             const response = await axios.post('https://scheduling-app-backend-b4fcac504465.herokuapp.com/create-account', toSend, {
                 withCredentials: true,
             });
+            location.replace('/conversations')
             console.log(response.data);
         } catch (error) {
             console.log(error)
